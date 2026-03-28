@@ -39,6 +39,7 @@ export const wg = {
     const extraLines = [];
     if (client.serverEndpoint) {
       extraLines.push(`Endpoint = ${client.serverEndpoint}`);
+      extraLines.push('PersistentKeepalive = 25');
     }
 
     return `# Client: ${client.name} (${client.id})
