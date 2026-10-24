@@ -90,7 +90,7 @@ LABEL org.opencontainers.image.source=https://github.com/wg-easy/wg-easy
 # Run Web UI
 CMD ["/usr/bin/dumb-init", "bash", "-c", "crond & node server/index.mjs"]
 
-COPY --from=build /app/amneziawg-tools/contrib/reresolve-dns/reresolve-dns.sh /usr/bin/wg-reresolve-dns
+COPY ./contrib/reresolve-dns.sh /usr/bin/wg-reresolve-dns
 RUN <<EOF
 chmod +x /usr/bin/wg-reresolve-dns
 echo "* * * * * /usr/bin/wg-reresolve-dns wg0" | crontab -
